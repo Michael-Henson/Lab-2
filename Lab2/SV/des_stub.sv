@@ -156,6 +156,35 @@ module PC2 (left_block, right_block, subkey);
    assign subkey[0] = whole_block[56-32];
 
 
+assign right_block[27]= key[64-63];
+   assign right_block[26]= key[64-55];
+   assign right_block[25]= key[64-47];
+   assign right_block[24]= key[64-39];
+   assign right_block[23]= key[64-31];
+   assign right_block[22]= key[64-23];
+   assign right_block[21]= key[64-15];
+   assign right_block[20]= key[64-7];
+   assign right_block[19]= key[64-62];
+   assign right_block[18]= key[64-54];
+   assign right_block[17]= key[64-46];
+   assign right_block[16]= key[64-38];
+   assign right_block[15]= key[64-30];
+	assign right_block[14]= key[64-22];
+	assign right_block[13]= key[64-14];
+	assign right_block[12]= key[64-6];
+	assign right_block[11]= key[64-61];
+	assign right_block[10]= key[64-53];
+	assign right_block[9]= key[64-45];
+	assign right_block[8]= key[64-37];
+	assign right_block[7]= key[64-29];
+	assign right_block[6]= key[64-21];
+	assign right_block[5]= key[64-13];
+	assign right_block[4]= key[64-5];
+	assign right_block[3]= key[64-28];
+	assign right_block[2]= key[64-20];
+	assign right_block[1]= key[64-12];
+	assign right_block[0]= key[64-4];
+
 endmodule // PC2
 
 // Straight Function
