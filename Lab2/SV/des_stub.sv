@@ -289,9 +289,6 @@ assign out_block [03]= inp_block [32-22];
 assign out_block [02]= inp_block [32-11];
 assign out_block [01]= inp_block [32-4];
 assign out_block [0]= inp_block [32-25];
-
-
-
 endmodule // SF
 
 // Expansion Function
