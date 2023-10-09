@@ -305,12 +305,12 @@ class DES {
     public static void main (String args[]) {
 	
 	// Example 1
-	//String plaintext = "123456abcd132536";
-	//String key = "133457799bbcdff1";	
+	String plaintext = "123456abcd132536";
+	String key = "133457799bbcdff1";	
 	// Example 2
-	String plaintext = "2579db866c0f528c";
-	String key = "433e4529462a4a62";
-	String IV = "0000000000000000";
+	//String plaintext = "2579db866cof528c";
+	//String key = "433e4529462a4a62";
+	//String IV = "0000000000000000";
 	// Example 3
 	//String plaintext = "ed7bc587a26f8c67";
 	//String key = "3b3898371520f75e";

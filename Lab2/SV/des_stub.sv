@@ -28,100 +28,100 @@ module GenerateKeys (Key, SubKey1, SubKey2, SubKey3, SubKey4,
    output logic [47:0] SubKey15;
    output logic [47:0] SubKey16;
 
-    logic [47:0] LS1;
-    logic [47:0] LS2;
-    logic [47:0] LS3;
-    logic [47:0] LS3b;
-    logic [47:0] LS4;
-    logic [47:0] LS4b;
-    logic [47:0] LS5;
-    logic [47:0] LS5b;
-    logic [47:0] LS6;
-    logic [47:0] LS6b;
-    logic [47:0] LS7;
-    logic [47:0] LS7b;
-    logic [47:0] LS8;
-    logic [47:0] LS8b;
-    logic [47:0] LS9;
-    logic [47:0] LS10;
-    logic [47:0] LS10b;
-    logic [47:0] LS11;
-    logic [47:0] LS11b;
-    logic [47:0] LS12;
-    logic [47:0] LS12b;
-    logic [47:0] LS13;
-    logic [47:0] LS13b;
-    logic [47:0] LS14;
-    logic [47:0] LS14b;
-    logic [47:0] LS15;
-    logic [47:0] LS15b;
-    logic [47:0] LS16;
+    logic [55:0] LS1;
+    logic [55:0] LS2;
+    logic [55:0] LS3;
+    logic [55:0] LS3b;
+    logic [55:0] LS4;
+    logic [55:0] LS4b;
+    logic [55:0] LS5;
+    logic [55:0] LS5b;
+    logic [55:0] LS6;
+    logic [55:0] LS6b;
+    logic [55:0] LS7;
+    logic [55:0] LS7b;
+    logic [55:0] LS8;
+    logic [55:0] LS8b;
+    logic [55:0] LS9;
+    logic [55:0] LS10;
+    logic [55:0] LS10b;
+    logic [55:0] LS11;
+    logic [55:0] LS11b;
+    logic [55:0] LS12;
+    logic [55:0] LS12b;
+    logic [55:0] LS13;
+    logic [55:0] LS13b;
+    logic [55:0] LS14;
+    logic [55:0] LS14b;
+    logic [55:0] LS15;
+    logic [55:0] LS15b;
+    logic [55:0] LS16;
 
-   logic [47:0] pcKey;
+   logic [55:0] pcKey;
 
    PC1 pc1 (Key, pcKey);
 
 	LeftShift k1 (pcKey, LS1);
 	PC2 p1 (LS1, SubKey1);
-	LeftShift k2 (SubKey1, LS2);
+	LeftShift k2 (LS1, LS2);
 	PC2 p2 (LS2, SubKey2);
-	LeftShift k3 (SubKey2, LS3);
+	LeftShift k3 (LS2, LS3);
 	LeftShift k32 (LS3, LS3b);
 	PC2 p3 (LS3b, SubKey3);
-	LeftShift k4 (SubKey3, Ls4);
-	LeftShift k42 (LS4, Ls4b);
+	LeftShift k4 (LS3b, LS4);
+	LeftShift k42 (LS4, LS4b);
 	PC2 p4 (LS4b, SubKey4);
-	LeftShift k5 (SubKey4, LS5);
-	LeftShift k52 (Ls5, Ls5b);
-	PC2 p5 (Ls5b, SubKey5);
-	LeftShift k6 (SubKey5, LS6);
+	LeftShift k5 (LS4b, LS5);
+	LeftShift k52 (LS5, LS5b);
+	PC2 p5 (LS5b, SubKey5);
+	LeftShift k6 (LS5b, LS6);
 	LeftShift k62 (LS6, LS6b);
 	PC2 p6 (LS6b, SubKey6);
-	LeftShift k7 (SubKey6, LS7);
+	LeftShift k7 (LS6b, LS7);
 	LeftShift k72 (LS7, LS7b);
 	PC2 p7 (LS7b, SubKey7);
-	LeftShift k8 (SubKey7, LS8);
+	LeftShift k8 (LS7b, LS8);
 	LeftShift k82 (LS8, LS8b);
 	PC2 p8 (LS8b, SubKey8);
-	LeftShift k92 (SubKey8, LS9);
+	LeftShift k92 (LS8b, LS9);
 	PC2 p9 (LS9, SubKey9);
-	LeftShift k10 (SubKey9, LS10);
+	LeftShift k10 (LS9, LS10);
 	LeftShift k102 (LS10, LS10b);
 	PC2 p10 (LS10b, SubKey10);
-	LeftShift k11 (SubKey10, LS11);
+	LeftShift k11 (LS10b, LS11);
 	LeftShift k112 (LS11, LS11b);
 	PC2 p11 (LS11b, SubKey11);
-	LeftShift k12 (SubKey11, LS12);
+	LeftShift k12 (LS11b, LS12);
 	LeftShift k122 (LS12, LS12b);
 	PC2 p12 (LS12b, SubKey12);
-	LeftShift k13 (SubKey12, LS13);
+	LeftShift k13 (LS12b, LS13);
 	LeftShift k132 (LS13, LS13b);
 	PC2 p13 (LS13b, SubKey13);
-	LeftShift k14 (SubKey13, LS14);
+	LeftShift k14 (LS13b, LS14);
 	LeftShift k142 (LS14, LS14b);
 	PC2 p14 (LS14b, SubKey14);
-	LeftShift k15 (SubKey14, LS15);
+	LeftShift k15 (LS14b, LS15);
 	LeftShift k152 (LS15, LS15b);
 	PC2 p15 (LS15b, SubKey15);
-	LeftShift k16 (SubKey15, LS16);
+	LeftShift k16 (LS15b, LS16);
 	PC2 p16 (LS16, SubKey16);
 
 endmodule // GenerateKeys
 
 module LeftShift (inputKey, outputKey);
 
-	input logic [47:0] inputKey;
-	output logic [47:0] outputKey;
-	logic [23:0] left_block;
-	logic [23:0] right_block;
+	input logic [55:0] inputKey;
+	output logic [55:0] outputKey;
+	logic [27:0] left_block;
+	logic [27:0] right_block;
 
-	assign left_block[23:1] = inputKey[46:24];
-	assign left_block[0] = inputKey[47];
-	assign right_block[23:1] = inputKey[22:0];
-	assign right_block[0] = inputKey[23];
+	assign left_block[27:1] = inputKey[54:28];
+	assign left_block[0] = inputKey[55];
+	assign right_block[27:1] = inputKey[26:0];
+	assign right_block[0] = inputKey[27];
 
-	assign outputKey[47:24] = left_block;
-	assign outputKey[23:0] = right_block;
+	assign outputKey[55:28] = left_block;
+	assign outputKey[27:0] = right_block;
 
 endmodule // LeftShift
 
@@ -131,7 +131,7 @@ module PC1 (key, outputKey);
 	logic [27:0] left_block;
     logic [27:0] right_block;
 
-   output logic [47:0] outputKey;
+   output logic [55:0] outputKey;
 	
 	assign left_block [27] = key[64-57];
 	assign left_block [26] = key[64-49];
@@ -374,7 +374,7 @@ module feistel (inp_block, subkey, out_block);
    S5_Box ss5 (xor_out[23:18], S5_out);
    S6_Box ss6 (xor_out[17:12], S6_out);
    S7_Box ss7 (xor_out[11:6], S7_out);
-   S8_Box ss8 (xor_out[6:0], S8_out);
+   S8_Box ss8 (xor_out[5:0], S8_out);
 
    assign S_out =  {S1_out, S2_out, S3_out, S4_out, S5_out, S6_out, S7_out, S8_out};
    SF s1 (S_out, out_block);
@@ -1184,7 +1184,7 @@ module DES (input logic [63:0] key, input logic [63:0] plaintext,
 
    logic [63:0] 	ip_out;  
    logic [63:0] 	round_out;
-   logic [63:0] 	r1_out = 64'h0, r2_out = 64'h0, r3_out = 64'h0, r4_out = 64'h0, r5_out = 64'h0, r6_out = 64'h0, r7_out = 64'h0, r8_out = 64'h0, r9_out = 64'h0, r10_out = 64'h0, r11_out = 64'h0, r12_out = 64'h0, r13_out = 64'h0, r14_out = 64'h0, r15_out = 64'h0, r16_out = 64'h0;
+   logic [63:0] 	r1_out, r2_out, r3_out, r4_out, r5_out, r6_out, r7_out, r8_out, r9_out, r10_out, r11_out, r12_out, r13_out, r14_out, r15_out, r16_out;
    
    // SubKey generation
    GenerateKeys k1 (key, SubKey1, SubKey2, SubKey3, SubKey4,
