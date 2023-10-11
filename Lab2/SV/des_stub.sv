@@ -399,7 +399,7 @@ module round (inp_block, subkey, out_block);
 
    feistel f1 (right_block, subkey, feistel_out);
    assign left_block2 = right_block;
-   assign right_block2 = (feistel_out ^ left_block);
+   assign right_block2 = (feistel_out ^ left_block); // This may be the problem because rightblock is what comes our wrong
    assign out_block = {left_block2, right_block2};
 
 endmodule // round1
@@ -1182,8 +1182,7 @@ module DES (input logic [63:0] key, input logic [63:0] plaintext,
    logic [47:0] 	SubKey9, SubKey10, SubKey11, SubKey12;
    logic [47:0] 	SubKey13, SubKey14, SubKey15, SubKey16;
 
-   logic [63:0] 	ip_out;  
-   logic [63:0] 	round_out;
+   logic [63:0] 	ip_out;
    logic [63:0] 	r1_out, r2_out, r3_out, r4_out, r5_out, r6_out, r7_out, r8_out, r9_out, r10_out, r11_out, r12_out, r13_out, r14_out, r15_out, r16_out;
    
    // SubKey generation
