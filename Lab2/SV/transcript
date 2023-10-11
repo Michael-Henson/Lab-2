@@ -13,7 +13,7 @@
 # //
 # do des.do
 # Model Technology ModelSim SE-64 vlog 2021.3 Compiler 2021.07 Jul 13 2021
-# Start time: 13:55:53 on Oct 11,2023
+# Start time: 17:09:41 on Oct 11,2023
 # vlog -reportprogress 300 des_stub.sv tb_des.sv 
 # -- Compiling module GenerateKeys
 # -- Compiling module LeftShift
@@ -38,10 +38,10 @@
 # 
 # Top level modules:
 # 	stimulus
-# End time: 13:55:54 on Oct 11,2023, Elapsed time: 0:00:01
+# End time: 17:09:41 on Oct 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -voptargs="+acc" work.stimulus 
-# Start time: 13:55:54 on Oct 11,2023
+# Start time: 17:09:41 on Oct 11,2023
 # ** Note: (vsim-3812) Design is being optimized...
 # Loading sv_std.std
 # Loading work.stimulus(fast)
@@ -65,10 +65,10 @@
 # Loading work.SF(fast)
 # Loading work.FP(fast)
 # .main_pane.wave.interior.cs.body.pw.wf
-#          8 tests completed with          8 errors
-# ** Note: $finish    : tb_des.sv(59)
+#          8 tests completed with          1 errors
+# ** Note: $finish    : tb_des.sv(61)
 #    Time: 75 ns  Iteration: 1  Instance: /stimulus
 # 1
-# Break in Module stimulus at tb_des.sv line 59
-# End time: 14:03:35 on Oct 11,2023, Elapsed time: 0:07:41
+# Break in Module stimulus at tb_des.sv line 61
+# End time: 17:29:54 on Oct 11,2023, Elapsed time: 0:20:13
 # Errors: 0, Warnings: 0

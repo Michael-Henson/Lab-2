@@ -342,7 +342,7 @@ assign out_block[5]= inp_block[32-28];
 assign out_block[4]= inp_block[32-29];
 assign out_block[3]= inp_block[32-30];
 assign out_block[2]= inp_block[32-31];
-assign out_block[1]= inp_block[32-31];
+assign out_block[1]= inp_block[32-32];
 assign out_block[0]= inp_block[32-1];
 
 endmodule // EF
@@ -399,7 +399,7 @@ module round (inp_block, subkey, out_block);
 
    feistel f1 (right_block, subkey, feistel_out);
    assign left_block2 = right_block;
-   assign right_block2 = (feistel_out ^ left_block); // This may be the problem because rightblock is what comes our wrong
+   assign right_block2 = (feistel_out ^ left_block);
    assign out_block = {left_block2, right_block2};
 
 endmodule // round1
@@ -1175,16 +1175,22 @@ module S8_Box (inp_bits, out_bits);
 endmodule // S8_Box
 
 module DES (input logic [63:0] key, input logic [63:0] plaintext, 
-	    input logic encrypt, output logic [63:0] ciphertext);
+	    input logic [1:0] encrypt, input logic [63:0] IV, output logic [63:0] ciphertext);
 
    logic [47:0] 	SubKey1, SubKey2, SubKey3, SubKey4;   
    logic [47:0] 	SubKey5, SubKey6, SubKey7, SubKey8;   
    logic [47:0] 	SubKey9, SubKey10, SubKey11, SubKey12;
    logic [47:0] 	SubKey13, SubKey14, SubKey15, SubKey16;
-
+	logic [47:0]	mux1, mux2, mux3, mux4, mux5, mux6, mux7, mux8, mux9, mux10, mux11, mux12, mux13, mux14, mux15, mux16;
    logic [63:0] 	ip_out;
    logic [63:0] 	r1_out, r2_out, r3_out, r4_out, r5_out, r6_out, r7_out, r8_out, r9_out, r10_out, r11_out, r12_out, r13_out, r14_out, r15_out, r16_out;
-   
+   logic [63:0]		IV_out; 
+   logic [63:0]		IV_out2;
+   logic [63:0]		ip_in;
+   logic [63:0]		FP_out;
+
+	
+
    // SubKey generation
    GenerateKeys k1 (key, SubKey1, SubKey2, SubKey3, SubKey4,
 		    SubKey5, SubKey6, SubKey7, SubKey8,
@@ -1192,43 +1198,67 @@ module DES (input logic [63:0] key, input logic [63:0] plaintext,
 		    SubKey13, SubKey14, SubKey15, SubKey16);
    // encrypt (encrypt=1) or decrypt (encrypt=0) 
 
+	assign mux1 = encrypt[0]? (SubKey1):(SubKey16);
+	assign mux2 = encrypt[0]? (SubKey2):(SubKey15);
+	assign mux3 = encrypt[0]? (SubKey3):(SubKey14);
+	assign mux4 = encrypt[0]? (SubKey4):(SubKey13);
+	assign mux5 = encrypt[0]? (SubKey5):(SubKey12);
+	assign mux6 = encrypt[0]? (SubKey6):(SubKey11);
+	assign mux7 = encrypt[0]? (SubKey7):(SubKey10);
+	assign mux8 = encrypt[0]? (SubKey8):(SubKey9);
+	assign mux9 = encrypt[0]? (SubKey9):(SubKey8);
+	assign mux10 = encrypt[0]? (SubKey10):(SubKey7);
+	assign mux11 = encrypt[0]? (SubKey11):(SubKey6);
+	assign mux12 = encrypt[0]? (SubKey12):(SubKey5);
+	assign mux13 = encrypt[0]? (SubKey13):(SubKey4);
+	assign mux14 = encrypt[0]? (SubKey14):(SubKey3);
+	assign mux15 = encrypt[0]? (SubKey15):(SubKey2);
+	assign mux16 = encrypt[0]? (SubKey16):(SubKey1);
+
+	assign IV_out = encrypt[1]? (plaintext ^ IV):(plaintext);
+	assign ip_in = encrypt[0]? (IV_out):(plaintext);
+
    // Initial Permutation (IP)
-   IP b1 (plaintext, ip_out);
+   IP b1 (ip_in, ip_out);
    // round 1
-   round q1 (ip_out, SubKey1, r1_out);
+   round q1 (ip_out, mux1, r1_out);
    // round 2
-   round q2 (r1_out, SubKey2, r2_out);
+   round q2 (r1_out, mux2, r2_out);
    // round 3
-	round q3 (r2_out, SubKey3, r3_out);
+	round q3 (r2_out, mux3, r3_out);
    // round 4
-	round q4 (r3_out, SubKey4, r4_out);
+	round q4 (r3_out, mux4, r4_out);
    // round 5
-	round q5 (r4_out, SubKey5, r5_out);
+	round q5 (r4_out, mux5, r5_out);
    // round 6
-	round q6 (r5_out, SubKey6, r6_out);
+	round q6 (r5_out, mux6, r6_out);
    // round 7
-	round q7 (r6_out, SubKey7, r7_out);
+	round q7 (r6_out, mux7, r7_out);
    // round 8
-	round q8 (r7_out, SubKey8, r8_out);
+	round q8 (r7_out, mux8, r8_out);
    // round 9
-	round q9 (r8_out, SubKey9, r9_out);
+	round q9 (r8_out, mux9, r9_out);
    // round 10
-   round q10 (r9_out, SubKey10, r10_out);
+   round q10 (r9_out, mux10, r10_out);
    // round 11
-   round q11 (r10_out, SubKey11, r11_out);
+   round q11 (r10_out, mux11, r11_out);
    // round 12
-   round q12 (r11_out, SubKey12, r12_out);
+   round q12 (r11_out, mux12, r12_out);
    // round 13
-   round q13 (r12_out, SubKey13, r13_out);
+   round q13 (r12_out, mux13, r13_out);
    // round 14
-   round q14 (r13_out, SubKey14, r14_out);
+   round q14 (r13_out, mux14, r14_out);
    // round 15
-   round q15 (r14_out, SubKey15, r15_out);
+   round q15 (r14_out, mux15, r15_out);
    // round 16
-   round q16(r15_out, SubKey16, r16_out);
+   round q16(r15_out, mux16, r16_out);
    // Final Permutation (IP^{-1}) (swap output of round16)
-   FP FP({r16_out[31:0], r16_out[63:32]}, ciphertext);
-   
+   FP FP({r16_out[31:0], r16_out[63:32]}, FP_out);
+
+
+	assign IV_out2 = encrypt[1]? (IV ^ FP_out):(FP_out);
+   	assign ciphertext = encrypt[0]? (FP_out):(IV_out2);
+
 endmodule // DES
 
 
