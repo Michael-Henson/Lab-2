@@ -1,0 +1,108 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1.1 (win64) Build 3900603 Fri Jun 16 19:31:24 MDT 2023
+| Date         : Thu Oct 12 14:52:28 2023
+| Host         : CEAT-ENDV350-05 running 64-bit major release  (build 9200)
+| Command      : report_timing -file route_report_timing_0.rpt -rpx route_report_timing_0.rpx
+| Design       : top_demo
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 sw[7]
+                            (input port)
+  Destination:            sseg_cb
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        60.027ns  (logic 11.902ns (19.829%)  route 48.124ns (80.171%))
+  Logic Levels:           37  (IBUF=1 LUT2=2 LUT3=6 LUT4=3 LUT5=4 LUT6=20 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    V9                                                0.000     0.000 r  sw[7] (IN)
+                         net (fo=0)                   0.000     0.000    sw[7]
+    V9                   IBUF (Prop_ibuf_I_O)         1.486     1.486 r  sw_IBUF[7]_inst/O
+                         net (fo=28, routed)          3.182     4.669    driver/sw_IBUF[6]
+    SLICE_X13Y38         LUT3 (Prop_lut3_I2_O)        0.124     4.793 r  driver/g0_b2__101_i_1/O
+                         net (fo=18, routed)          1.014     5.807    driver/des/ip_in[3]
+    SLICE_X13Y31         LUT3 (Prop_lut3_I2_O)        0.152     5.959 r  driver/g0_b1__111/O
+                         net (fo=2, routed)           0.734     6.693    driver/des/q1/feistel_out[7]
+    SLICE_X5Y30          LUT5 (Prop_lut5_I4_O)        0.332     7.025 r  driver/g0_b1__0_i_1/O
+                         net (fo=8, routed)           0.987     8.011    driver/des/r1_out[7]
+    SLICE_X6Y28          LUT4 (Prop_lut4_I2_O)        0.152     8.163 r  driver/g0_b2__0/O
+                         net (fo=12, routed)          1.215     9.378    driver/des/q2/feistel_out[3]
+    SLICE_X10Y32         LUT3 (Prop_lut3_I2_O)        0.348     9.726 r  driver/g0_b0__3_i_2/O
+                         net (fo=4, routed)           1.239    10.965    driver/g0_b0__3_i_2_n_0
+    SLICE_X3Y32          LUT6 (Prop_lut6_I4_O)        0.124    11.089 r  driver/g0_b3__4/O
+                         net (fo=5, routed)           0.902    11.991    driver/des/q3/feistel_out[0]
+    SLICE_X4Y30          LUT2 (Prop_lut2_I1_O)        0.150    12.141 r  driver/g0_b3__112_i_2/O
+                         net (fo=8, routed)           0.451    12.592    driver/des/r3_out[0]
+    SLICE_X5Y31          LUT6 (Prop_lut6_I5_O)        0.328    12.920 r  driver/g0_b1__109/O
+                         net (fo=5, routed)           1.162    14.083    driver/des/q4/feistel_out[9]
+    SLICE_X5Y35          LUT2 (Prop_lut2_I1_O)        0.152    14.235 r  driver/g0_b0__13_i_2/O
+                         net (fo=4, routed)           1.024    15.259    driver/des/r4_out[9]
+    SLICE_X1Y32          LUT6 (Prop_lut6_I1_O)        0.326    15.585 r  driver/g0_b2__14/O
+                         net (fo=5, routed)           1.106    16.691    driver/des/q5/feistel_out[3]
+    SLICE_X6Y34          LUT6 (Prop_lut6_I5_O)        0.124    16.815 r  driver/g0_b0__18_i_5/O
+                         net (fo=11, routed)          2.274    19.089    driver/des/r5_out[3]
+    SLICE_X9Y26          LUT6 (Prop_lut6_I4_O)        0.124    19.213 r  driver/g0_b2__19/O
+                         net (fo=4, routed)           0.987    20.200    driver/des/q6/feistel_out[20]
+    SLICE_X12Y28         LUT3 (Prop_lut3_I2_O)        0.148    20.348 r  driver/g0_b0__28_i_1/O
+                         net (fo=8, routed)           1.342    21.690    driver/des/r6_out[20]
+    SLICE_X12Y31         LUT6 (Prop_lut6_I5_O)        0.328    22.018 r  driver/g0_b2__33/O
+                         net (fo=4, routed)           1.028    23.045    driver/des/q7/feistel_out[12]
+    SLICE_X12Y26         LUT3 (Prop_lut3_I2_O)        0.152    23.197 r  driver/g0_b0__37_i_4/O
+                         net (fo=8, routed)           1.253    24.451    driver/des/r7_out[12]
+    SLICE_X10Y26         LUT6 (Prop_lut6_I5_O)        0.348    24.799 r  driver/g0_b2__38/O
+                         net (fo=4, routed)           1.052    25.851    driver/des/q8/feistel_out[3]
+    SLICE_X7Y26          LUT4 (Prop_lut4_I3_O)        0.124    25.975 r  driver/g0_b0__42_i_5/O
+                         net (fo=4, routed)           1.005    26.980    driver/des/r8_out[3]
+    SLICE_X6Y30          LUT6 (Prop_lut6_I4_O)        0.124    27.104 r  driver/g0_b3__43/O
+                         net (fo=2, routed)           0.802    27.907    driver/des/q9/feistel_out[0]
+    SLICE_X3Y30          LUT5 (Prop_lut5_I4_O)        0.150    28.057 r  driver/g0_b0__51_i_6/O
+                         net (fo=12, routed)          1.848    29.905    driver/des/r9_out[0]
+    SLICE_X14Y30         LUT6 (Prop_lut6_I0_O)        0.326    30.231 r  driver/g0_b0__55/O
+                         net (fo=4, routed)           1.185    31.416    driver/des/q10/feistel_out[11]
+    SLICE_X10Y32         LUT5 (Prop_lut5_I4_O)        0.153    31.569 r  driver/g0_b0__61_i_3/O
+                         net (fo=4, routed)           1.289    32.858    driver/des/r10_out[11]
+    SLICE_X7Y35          LUT6 (Prop_lut6_I3_O)        0.331    33.189 r  driver/g0_b0__61/O
+                         net (fo=2, routed)           1.463    34.653    driver/des/q11/feistel_out[13]
+    SLICE_X11Y31         LUT5 (Prop_lut5_I4_O)        0.150    34.803 r  driver/g0_b0__73_i_1/O
+                         net (fo=4, routed)           1.146    35.949    driver/des/r11_out[13]
+    SLICE_X14Y28         LUT6 (Prop_lut6_I1_O)        0.326    36.275 r  driver/g0_b3__74/O
+                         net (fo=1, routed)           1.264    37.539    driver/des/q12/feistel_out[24]
+    SLICE_X14Y25         LUT6 (Prop_lut6_I5_O)        0.124    37.663 r  driver/g0_b0__76_i_6/O
+                         net (fo=10, routed)          0.812    38.474    driver/des/r12_out[24]
+    SLICE_X17Y29         LUT6 (Prop_lut6_I0_O)        0.124    38.598 r  driver/g0_b3__79/O
+                         net (fo=1, routed)           1.146    39.745    driver/des/q13/feistel_out[19]
+    SLICE_X10Y28         LUT6 (Prop_lut6_I5_O)        0.124    39.869 r  driver/g0_b0__84_i_5/O
+                         net (fo=9, routed)           1.397    41.266    driver/des/r13_out[19]
+    SLICE_X13Y37         LUT6 (Prop_lut6_I3_O)        0.124    41.390 r  driver/g0_b2__89/O
+                         net (fo=2, routed)           0.792    42.182    driver/des/q14/feistel_out[12]
+    SLICE_X10Y32         LUT4 (Prop_lut4_I2_O)        0.117    42.299 r  driver/g0_b0__92_i_4/O
+                         net (fo=4, routed)           1.155    43.454    driver/g0_b0__92_i_4_n_0
+    SLICE_X11Y36         LUT6 (Prop_lut6_I5_O)        0.348    43.802 r  driver/g0_b2__94/O
+                         net (fo=1, routed)           0.895    44.697    driver/des/q15/feistel_out[3]
+    SLICE_X12Y34         LUT6 (Prop_lut6_I5_O)        0.124    44.821 r  driver/g0_b0__97_i_5/O
+                         net (fo=3, routed)           0.751    45.572    driver/des/r15_out[3]
+    SLICE_X14Y34         LUT6 (Prop_lut6_I3_O)        0.124    45.696 r  driver/g0_b1__98/O
+                         net (fo=1, routed)           0.593    46.289    driver/des/q16/feistel_out[17]
+    SLICE_X14Y33         LUT3 (Prop_lut3_I2_O)        0.150    46.439 r  driver/sseg_ca_OBUF_inst_i_7/O
+                         net (fo=7, routed)           1.239    47.678    driver/des/r16_out[17]
+    SLICE_X14Y38         LUT6 (Prop_lut6_I1_O)        0.328    48.006 r  driver/sseg_cb_OBUF_inst_i_2/O
+                         net (fo=1, routed)           0.701    48.707    driver/sseg_cb_OBUF_inst_i_2_n_0
+    SLICE_X14Y40         LUT6 (Prop_lut6_I0_O)        0.124    48.831 r  driver/sseg_cb_OBUF_inst_i_1/O
+                         net (fo=1, routed)           7.686    56.518    sseg_cb_OBUF
+    H17                  OBUF (Prop_obuf_I_O)         3.509    60.027 r  sseg_cb_OBUF_inst/O
+                         net (fo=0)                   0.000    60.027    sseg_cb
+    H17                                                               r  sseg_cb (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+

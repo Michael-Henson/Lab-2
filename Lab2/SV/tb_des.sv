@@ -6,14 +6,14 @@ module stimulus;
    logic [1:0]	 encrypt;
    logic [63:0]  ciphertext;
    logic [63:0]  IV;
-   assign IV = 64'h1111_1111_1111_1111;
+   //assign IV = 64'h1111_1111_1111_1111;
 
    logic 	 clk;
    logic [31:0]  errors;
    logic [31:0]  vectornum;
    logic [63:0]  result;
    logic [7:0] 	 op;   
-   logic [199:0] testvectors[511:0];
+   logic [263:0] testvectors[511:0];
      
    
    integer 	 handle3;
@@ -40,7 +40,7 @@ module stimulus;
    // apply test vectors on rising edge of clk
    always @(posedge clk)
      begin
-	#1; {plaintext, op, key, result} = testvectors[vectornum];
+	#1; {plaintext, op, key, result, IV} = testvectors[vectornum];
 	#0 encrypt = op[1:0];		  
      end  
 

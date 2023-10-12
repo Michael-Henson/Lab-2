@@ -305,8 +305,9 @@ class DES {
     public static void main (String args[]) {
 	
 	// Example 1
-	String plaintext = "123456abcd132536";
-	String key = "133457799bbcdff1";	
+	String plaintext = "0000000000000000";
+	String key = "0000000000000007";
+    String IV = "0000000000000000";
 	// Example 2
 	//String plaintext = "2579db866cof528c";
 	//String key = "433e4529462a4a62";
@@ -325,19 +326,19 @@ class DES {
 	System.out.println("Key:\t\t\t" + key.toUpperCase());
 	System.out.println("IV (for CBC mode):\t" + IV.toUpperCase() + "\n");		
         des cipher = new des();
-	
+	/*
         // Check for Bad Key (odd parity)
         if (!cipher.CheckDESParity(key)) {
             System.out.println("Bad Key!");
             System.exit(0);
         }
-
+*/
         System.out.println("Encryption:\n");
         ciphertext = cipher.encrypt(plaintext, key, IV);
         System.out.println(
             "\nCipher Text: " + ciphertext.toUpperCase() + "\n");
         System.out.println("Decryption\n");
-        decryptedPlaintext = cipher.decrypt(ciphertext, key, IV);
+        decryptedPlaintext = cipher.decrypt(plaintext, key, IV);
         System.out.println(
             "\nPlain Text: "
             + decryptedPlaintext.toUpperCase());

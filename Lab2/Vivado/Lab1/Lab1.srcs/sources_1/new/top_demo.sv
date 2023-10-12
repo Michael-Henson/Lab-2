@@ -50,11 +50,10 @@ module top_demo
   segment_driver driver(
   .clk(smol_clk),
   .rst(btn[3]),
-  .digit0(sw[3:0]),
-  .digit1(4'b0111),
-  .digit2(sw[7:4]),
-  .digit3(4'b1111),
-  .decimals({1'b0, btn[2:0]}),
+  .digit3(cipherText[63:60]),
+  .digit2(cipherText[59:56]),
+  .digit1(cipherText[55:52]),
+  .digit0(cipherText[51:48]),
   .segment_cathodes({sseg_dp, sseg_cg, sseg_cf, sseg_ce, sseg_cd, sseg_cc, sseg_cb, sseg_ca}),
   .digit_anodes(sseg_an)
   );
@@ -73,5 +72,20 @@ module top_demo
 
   // Creation of smaller clock signal from counters
   assign smol_clk = CURRENT_COUNT == 17'd100000 ? 1'b1 : 1'b0;
+  
+  logic [63:0] key;
+  logic [63:0] plaintext;
+  logic [63:0] IV;
+  logic [63:0] cipherText;
+  logic [1:0] encrypt;
+  
+  assign encrypt = {sw[7:6]};
+  assign plaintext = {60'b0, sw[5:3]};
+  assign key = {60'b0, sw[2:0]};
+  assign IV = {59'b0, btn[3:0]};
+  
+  DES des(key, plaintext, encrypt, IV, cipherText);
 
 endmodule
+	    
+	    
