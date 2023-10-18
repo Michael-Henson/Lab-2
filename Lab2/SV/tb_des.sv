@@ -40,7 +40,7 @@ module stimulus;
    // apply test vectors on rising edge of clk
    always @(posedge clk)
      begin
-	#1; {plaintext, op, key, result, IV} = testvectors[vectornum];
+	#1; {plaintext, op, key, IV, result} = testvectors[vectornum];
 	#0 encrypt = op[1:0];		  
      end  
 

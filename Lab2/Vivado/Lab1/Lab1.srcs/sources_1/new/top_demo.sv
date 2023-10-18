@@ -49,7 +49,7 @@ module top_demo
   // 7-segment display
   segment_driver driver(
   .clk(smol_clk),
-  .rst(btn[3]),
+  //.rst(btn[3]),
   .digit3(cipherText[63:60]),
   .digit2(cipherText[59:56]),
   .digit1(cipherText[55:52]),
@@ -59,6 +59,7 @@ module top_demo
   );
 
 // Register logic storing clock counts
+/*
   always@(posedge sysclk_125mhz)
   begin
     if(btn[3])
@@ -66,6 +67,7 @@ module top_demo
     else
       CURRENT_COUNT = NEXT_COUNT;
   end
+  */
   
   // Increment logic
   assign NEXT_COUNT = CURRENT_COUNT == 17'd100000 ? 17'h00000 : CURRENT_COUNT + 1;

@@ -12,8 +12,11 @@
 # //  18 U.S.C. Section 1905.
 # //
 # do des.do
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is mhens11@CEAT-ENDV350-05.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
 # Model Technology ModelSim SE-64 vlog 2021.3 Compiler 2021.07 Jul 13 2021
-# Start time: 13:43:01 on Oct 12,2023
+# Start time: 16:56:42 on Oct 18,2023
 # vlog -reportprogress 300 des_stub.sv tb_des.sv 
 # -- Compiling module GenerateKeys
 # -- Compiling module LeftShift
@@ -38,10 +41,10 @@
 # 
 # Top level modules:
 # 	stimulus
-# End time: 13:43:01 on Oct 12,2023, Elapsed time: 0:00:00
+# End time: 16:56:42 on Oct 18,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -voptargs="+acc" work.stimulus 
-# Start time: 13:43:01 on Oct 12,2023
+# Start time: 16:56:42 on Oct 18,2023
 # ** Note: (vsim-3812) Design is being optimized...
 # Loading sv_std.std
 # Loading work.stimulus(fast)
@@ -65,3 +68,10 @@
 # Loading work.SF(fast)
 # Loading work.FP(fast)
 # .main_pane.wave.interior.cs.body.pw.wf
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: mhens11  Hostname: CEAT-ENDV350-05  ProcessID: 20736
+#           Attempting to use alternate WLF file "./wlft17sq7x".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft17sq7x
+# End time: 17:27:49 on Oct 18,2023, Elapsed time: 0:31:07
+# Errors: 0, Warnings: 2

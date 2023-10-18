@@ -305,9 +305,9 @@ class DES {
     public static void main (String args[]) {
 	
 	// Example 1
-	String plaintext = "0000000000000000";
-	String key = "0000000000000007";
-    String IV = "0000000000000000";
+	String plaintext = "763381F66E199599";
+	String key = "133457799bbcdff1";
+    String IV = "1111111111111111";
 	// Example 2
 	//String plaintext = "2579db866cof528c";
 	//String key = "433e4529462a4a62";
